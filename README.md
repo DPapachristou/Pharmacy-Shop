@@ -15,7 +15,6 @@ Project is created with:
 - CryptoJs
 - JWT
 - Cors
--
 
 ## Setup
 
