@@ -1,29 +1,44 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const userRoute = require("./routes/user");
+const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
-const cartRoute = require("./routes/cart");
-const orderRoute = require("./routes/order");
-const cors = require("cors");
+const userRoute = require("./routes/users");
+const postRoute = require("./routes/posts");
+const multer = require("multer");
+const cors = require('cors');
+const path = require("path");
 
 dotenv.config();
+app.use(express.json());
+app.use(cors({
+  origin: "*",
+}))
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => console.log("db connection success"));
+  .then(() => console.log("Connected"))
+  .catch((err) => console.log(err));
 
-app.use(cors())
-app.use(express.json());
-app.use("/server/users", userRoute);
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage: storage });
+app.post("/server/upload", upload.single("file"), (req, res) => {
+  res.status(200).json("File has been uploaded!");
+});
+
 app.use("/server/auth", authRoute);
-app.use("/server/products", productRoute);
-app.use("/api/carts", cartRoute);
-app.use("/api/orders", orderRoute);
+app.use("/server/users", userRoute);
+app.use("/server/posts", postRoute);
 
-
-app.listen(5000, () => {
+app.listen("5000", () => {
   console.log("Server is running on port 5000");
 });
