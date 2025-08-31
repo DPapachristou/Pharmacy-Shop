@@ -1,24 +1,24 @@
-# Pharmacy E-Shop Website
+# Pharmacy E-Shop
 
-## Project Description
+A practice full-stack project simulating a pharmacy online store.
 
-This is a Website created for practice purpose and it is about a pharmacy E-Shop.
+## Features
+- User authentication (JWT)
+- Browse products, add to cart
+- Admin panel to manage products
+- Secure checkout
 
-## Technologies
+## Tech Stack
+- **Frontend:** React
+- **Backend:** Node.js, Express
+- **Database:** MongoDB (Mongoose)
+- **Auth & Security:** JWT, CryptoJS
 
-Project is created with:
-
-- React
-- NodeJS
-- Mongoose
-- Express
-- CryptoJs
-- JWT
-- Cors
-
-## Setup
-
-To run this project, install it locally using npm:
-
-$ npm install
-$ npm start
+## Installation
+```bash
+git clone https://github.com/your-username/pharmacy-eshop.git
+cd pharmacy-eshop/server
+npm install
+cd ../client
+npm install
+npm start
