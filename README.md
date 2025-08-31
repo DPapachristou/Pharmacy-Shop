@@ -1,4 +1,4 @@
-# Pharmacy E-Shop
+# Pharmacy E-Shop 🧪 
 
 A practice full-stack project simulating a pharmacy online store.
 
@@ -13,12 +13,3 @@ A practice full-stack project simulating a pharmacy online store.
 - **Backend:** Node.js, Express
 - **Database:** MongoDB (Mongoose)
 - **Auth & Security:** JWT, CryptoJS
-
-## Installation
-```bash
-git clone https://github.com/your-username/pharmacy-eshop.git
-cd pharmacy-eshop/server
-npm install
-cd ../client
-npm install
-npm start
