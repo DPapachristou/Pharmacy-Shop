@@ -1,3 +1,5 @@
+
+
 .productPage{
     display: flex;
     flex-wrap: wrap;
@@ -6,52 +8,95 @@
 }
 
 .write {
-    margin: 200px 50px 50px 200px;
+    margin: 150px 50px 200px 100px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.233);
+    border-radius: 20px;
   }
+
+
+
 
 .writeForm{
    padding: 20px 20px 20px 20px;
 }
 
+.writeImg{
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 10px 0;
+  display: block;
+}
+
+.removeImgBtn{
+  border-radius: 15px;
+  background-color: rgb(204, 0, 0);
+  border: 0;
+  color: white;
+  font-size: 15px;
+}
+
+.removeImgBtn:hover {
+  background-color: rgb(167, 0, 0);;
+}
+
+.writeInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px 10px 20px 10px;
+  margin: 20px 0 20px 0;
+}
 
 
+.customFileLabel{
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: rgb(124, 124, 124);
+  border: 0;
+  margin-left: 55px;
+  font-size: 10px;
+  cursor: pointer;
+  color: white;
+}
 
-
-
-
-
-
-
+.customFileLabel:hover {
+  background-color: hsl(189, 100%, 34%);
+}
 
 
 .fileInput{
   display: none;
 }
 
-.customFileLabel {
-  padding: 17px 40px;
+.writeSubmit {
+  padding: 20px 30px;
   border-radius: 50px;
   cursor: pointer;
   border: 0;
-  background-color: white;
+  background-color: hsla(189, 100%, 34%, 0.651);
   box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 10px;
   transition: all 0.5s ease;
+  color: white;
+  margin-left: 55px;
 }
 
-.customFileLabel:hover {
+.writeSubmit:hover {
   letter-spacing: 3px;
-  background-color: hsl(189, 99%, 32%);
+  background-color: hsl(189, 100%, 34%);
   color: hsl(0, 0%, 100%);
   box-shadow: rgb(119, 107, 141) 0px 7px 29px 0px;
 }
 
-.customFileLabel:active {
+.writeSubmit:active {
   letter-spacing: 3px;
   background-color: hsl(261deg 80% 48%);
   color: hsl(0, 0%, 100%);

@@ -2,7 +2,7 @@ import './NewArticle.css'
 import { useContext, useState } from "react";
 import axios from "axios";
 import { Context } from "../../context/context";
-
+import Footer from "../../components/Footer/Footer";
 
 export default function NewArticle() {
     const [title, setTitle] = useState("");
@@ -38,9 +38,6 @@ export default function NewArticle() {
   return (
     <div className='productPage'>
       <div className="write">
-        {file && (
-          <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
-        )}
         <form className="writeForm" onSubmit={handleSubmit}>
           <div className="writeFormGroup">
             <input
@@ -52,6 +49,18 @@ export default function NewArticle() {
             <label htmlFor="fileUpload" className="customFileLabel">
               Upload Product
             </label>
+            {file && (
+            <div className="imagePreview">
+             <img className="writeImg" src={URL.createObjectURL(file)} alt="preview" />
+            <button 
+              type="button" 
+              className="removeImgBtn"
+              onClick={() => setFile(null)}
+            >
+             Remove Image
+            </button>
+            </div>
+             )}
             <input
               type="text"
               placeholder="Product Title"
@@ -79,6 +88,7 @@ export default function NewArticle() {
           </button>
         </form>
       </div>
+      <Footer/>
     </div>
     );
   }
