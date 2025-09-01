@@ -15,19 +15,13 @@ function Navbara() {
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
-  
+
   return (
-    <Navbar
-      expand="lg"
-      className="bg-body-tertiary"
-      sticky="top"
-      bg="light"
-      data-bs-theme="light"
-    >
-      <Container>
-        <Navbar.Brand href="/">Pharmacy</Navbar.Brand>
+    <Navbar className="NavB">
+      <Container className="navCont">
+        <Navbar.Brand href="/" className="navLogo">Pharmacy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">HOME</Nav.Link>
             <Nav.Link href="/newArticle">NEW PRODUCT</Nav.Link>

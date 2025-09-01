@@ -1,8 +1,34 @@
 .topImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-  }
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
+.NavB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 40;
+}
+
+.navCont.container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin: 0 0;
+}
+
+.navCont .navLogo{
+  display: flex;
+  justify-content: start; 
+  align-items: center;
+  font-size: 25px;
+  color: rgb(1, 187, 187);
+  font-weight: bolder;
+}
+
+.navCont .navLogo:hover {
+  color: rgb(1, 187, 187);
+}

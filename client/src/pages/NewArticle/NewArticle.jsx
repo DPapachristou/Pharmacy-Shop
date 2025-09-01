@@ -36,6 +36,7 @@ export default function NewArticle() {
       };
 
   return (
+    <div className='productPage'>
       <div className="write">
         {file && (
           <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
@@ -43,10 +44,14 @@ export default function NewArticle() {
         <form className="writeForm" onSubmit={handleSubmit}>
           <div className="writeFormGroup">
             <input
-              type="file"
-              id="fileInput"
+              type='file'
+              className='fileInput'
+              id='fileUpload'
               onChange={(e) => setFile(e.target.files[0])}
             />
+            <label htmlFor="fileUpload" className="customFileLabel">
+              Upload Product
+            </label>
             <input
               type="text"
               placeholder="Product Title"
@@ -74,5 +79,6 @@ export default function NewArticle() {
           </button>
         </form>
       </div>
+    </div>
     );
   }

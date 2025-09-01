@@ -3,8 +3,10 @@ import "./Header.css";
 export default function Header() {
   return (
     <div className="header">
-        <div className="headerTitle">
+      <div className="headerRibbon">
+        <div className="typewriter-animation">
             <span>Free shipping with orders over 50€!</span>
+        </div>
         </div>
         <div>
         <img 
