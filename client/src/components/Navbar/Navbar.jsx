@@ -23,9 +23,7 @@ function Navbara() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">HOME</Nav.Link>
-            <Nav.Link href="/newArticle">NEW PRODUCT</Nav.Link>
-            <Nav.Link href="/cart">CART</Nav.Link>
+            <Nav.Link href="/newArticle">ADD NEW PRODUCT</Nav.Link>
               { user ? ( <> <Link to="/settings">
             <img className="topImg" src={PF + user.profilePic} alt="" />
           </Link><NavDropdown title="ACCOUNT" id="basic-nav-dropdown">

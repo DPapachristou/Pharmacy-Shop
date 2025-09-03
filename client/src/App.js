@@ -5,7 +5,6 @@ import NewArticle from "./pages/NewArticle/NewArticle";
 import Register from "./pages/Register/Register";
 import Settings from "./pages/Settings/Settings";
 import Single from "./pages/Single/Single";
-import Cart from "./pages/Cart/Cart"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/context";
@@ -25,7 +24,6 @@ function App() {
         />
         <Route path="/settings" element={user ? <Settings /> : <Settings />} />
         <Route path="/post/:postId" element={<Single />} />
-        <Route path="/cart" element={<Cart/>}/>
       </Routes>
     </Router>
   );

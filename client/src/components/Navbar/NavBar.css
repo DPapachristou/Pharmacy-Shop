@@ -3,6 +3,8 @@
   height: 35px;
   border-radius: 50%;
   object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .NavB{
@@ -13,16 +15,16 @@
   margin: 0 40;
 }
 
-.navCont.container {
+.navCont {
   display: flex; 
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 0 0;
 }
 
 .navCont .navLogo{
   display: flex;
-  justify-content: start; 
+  justify-content: flex-start; 
   align-items: center;
   font-size: 25px;
   color: rgb(1, 187, 187);
@@ -32,3 +34,8 @@
 .navCont .navLogo:hover {
   color: rgb(1, 187, 187);
 }
+
+.basic-navbar-nav {
+  margin-left: 750px;
+}
+
