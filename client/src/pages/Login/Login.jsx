@@ -1,7 +1,7 @@
 import './Login.css'
 import Button from 'react-bootstrap/esm/Button'
 import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {Context} from "../../context/context"
 
@@ -9,6 +9,7 @@ export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
   const { dispatch, isFetching } = useContext(Context);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,8 +20,11 @@ export default function Login() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      localStorage.setItem("user", JSON.stringify(res.data));
+      navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
+      alert("Wrong username or password");
     }
   };
   return (
@@ -41,7 +45,9 @@ export default function Login() {
           placeholder="Enter your password..."
           ref={passwordRef}
         />
-        <Button className="loginButton" variant="info" type="submit" disabled={isFetching}>Login</Button>
+        <Button className="loginButton" variant="info" type="submit" disabled={isFetching}>
+          {isFetching ? "Loading..." : "Login"}
+          </Button>
         </form>
         <Button className='registerButton' variant='success'>
         <Link className="link" to="/register">

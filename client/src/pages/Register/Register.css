@@ -49,3 +49,10 @@
 .loginButton{
     margin-top: 10px;
 }
+
+.adminCheckbox{
+    display: "flex";
+    align-Items: "center"; 
+    gap: "8px"; 
+    margin: "10px 0";
+}

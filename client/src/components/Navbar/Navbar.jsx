@@ -14,32 +14,44 @@ function Navbara() {
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user");
   };
 
   return (
     <Navbar className="NavB">
       <Container className="navCont">
-        <Navbar.Brand href="/" className="navLogo">Pharmacy</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className="navLogo">Pharmacy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/newArticle">ADD NEW PRODUCT</Nav.Link>
-              { user ? ( <> <Link to="/settings">
-            <img className="topImg" src={PF + user.profilePic} alt="" />
-          </Link><NavDropdown title="ACCOUNT" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/settings">MY ACCOUNT</NavDropdown.Item>
-              <NavDropdown.Item onClick={handleLogout}>{user && "LOGOUT"}</NavDropdown.Item>
-              </NavDropdown></>) : (
-                <>
+            {user?.isAdmin && (
+              <Nav.Link as={Link} to="/newArticle">ADD NEW PRODUCT</Nav.Link>
+            )}
+               {user ? (
+              <>
+                {user.profilePic && (
+                  <Link to="/settings">
+                    <img className="topImg" src={PF + user.profilePic} alt="" />
+                  </Link>
+                )}
                 <NavDropdown title="ACCOUNT" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/login">LOGIN</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/register">
-                CREATE ACCOUNT
-              </NavDropdown.Item>
-              </NavDropdown>
+                  <NavDropdown.Item as={Link} to="/settings">MY ACCOUNT</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    LOGOUT
+                  </NavDropdown.Item>
+                </NavDropdown>
               </>
-              )}
+            ) : (
+              <>
+                <NavDropdown title="ACCOUNT" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to="/login">LOGIN</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to="/register">
+                    CREATE ACCOUNT
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

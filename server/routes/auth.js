@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../models/user");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
@@ -10,29 +10,34 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPass,
+      isAdmin: req.body.isAdmin || false,
     });
     const user = await newUser.save();
-    res.status(200).json(user);
+    const { password, ...safeUser } = user._doc;
+    return res.status(201).json(safeUser);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json({ message: "Register failed" });
   }
 });
 
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json("Wrong credentials!");
-
+    if (!user) {
+      return res.status(400).json("Wrong credentials!");
+    }
     const validated = await bcrypt.compare(req.body.password, user.password);
-    !validated && res.status(400).json("Wrong credentials!");
-
+    if (!validated) {
+      return res.status(400).json("Wrong credentials!");
+    }
     const {password, ...others} = user._doc;
     res.status(200).json(others);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "Login failed" });
   }
 });
 
 module.exports = router;
+
