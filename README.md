@@ -56,37 +56,37 @@ Admins can add new products, update, and delete them.
 
 ---
 
-Installation
+Installation  
 
 ---
 
- **Clone the repository**
-   bash:
-   git clone https://github.com/DPapachristou/pharmacy-shop.git
-   cd pharmacy-shop
+ **Clone the repository**  
+   bash:  
+   git clone https://github.com/DPapachristou/pharmacy-shop.git  
+   cd pharmacy-shop  
 ---
-Backend:
+Backend:  
 
-cd server
-npm install
-node index.js
-
----
-Frontend:
-
-cd client
-npm install
-npm start
+cd server  
+npm install  
+node index.js  
 
 ---
+Frontend:  
 
-Future Improvements:
+cd client  
+npm install  
+npm start  
 
--JWT authentication for secure sessions
--Categories & filters for products
--Search functionality
--Responsive mobile-first redesign
--Cart and payment feature
--Deployment (e.g., Vercel for frontend + Render/Heroku for backend)
+---
+
+Future Improvements:  
+
+-JWT authentication for secure sessions  
+-Categories & filters for products  
+-Search functionality  
+-Responsive mobile-first redesign  
+-Cart and payment feature  
+-Deployment (e.g., Vercel for frontend + Render/Heroku for backend)  
 
 👨‍💻 Author: Dimitris Papachristou
