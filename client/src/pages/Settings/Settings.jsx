@@ -5,38 +5,46 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 export default function Settings() {
+  //Local Form state
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
-
+    
+    //Global User
     const { user, dispatch } = useContext(Context);
     const PF = "http://localhost:5000/images/"
 
+    //Prefill form with current user
     useEffect(() => {
     if (!user) return;                 
       setUsername(user.username || "");
       setEmail(user.email || "");
     }, [user]);
 
+    //If not logged in, redirect to login page
     if (!user) {
     return <Navigate to="/login" replace />;
     }
 
+    //profile update
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSuccess(false);
         dispatch({ type: "UPDATE_START" });
+        //safety check
         if (!user?._id) {
          dispatch({ type: "UPDATE_FAILURE" });
          return;
         }
+        //Build update payload (send only changed values)
         const updatedUser = {
           userId: user._id};
           if (username && username !== user.username) updatedUser.username = username;
           if (email && email !== user.email) updatedUser.email = email;
           if (password) updatedUser.password = password;
+          //If profile image selected, changed it first
         if (file) {
           const data = new FormData();
           const filename = Date.now() + "_" + file.name;
@@ -53,6 +61,7 @@ export default function Settings() {
             return;
           }
         }
+        //send update request
         try {
           const res = await axios.put("http://localhost:5000/server/users/" + user._id, updatedUser);
           dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
@@ -64,6 +73,7 @@ export default function Settings() {
           dispatch({ type: "UPDATE_FAILURE" });
         }
       };
+      //account delete
   const handleDelete = async () => {
         if (!user?._id) return;
         if (!window.confirm("Are you sure you want to delete your account?")) return;
@@ -75,6 +85,7 @@ export default function Settings() {
             username: user.username,
           },
           });
+          //clear session and redirect home
           dispatch({ type: "LOGOUT" });
           localStorage.removeItem("user");
           window.location.replace("/");
@@ -89,10 +100,9 @@ export default function Settings() {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsUpdateTitle">Update Your Account</span>
-          <span className="settingsDeleteTitle" onClick={handleDelete}>Delete Account</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
-          <label>Profile Picture</label>
+          
           <div className="settingsPP">
             {file || user.profilePic ? (
               <img
@@ -110,7 +120,8 @@ export default function Settings() {
               accept="image/*"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
             />
-          </div>
+          </div>  
+          <label>Profile Picture</label>
           <label>Username</label>
           <input
             type="text"
@@ -134,6 +145,13 @@ export default function Settings() {
           />
           <button className="settingsSubmit" type="submit">
             Update
+          </button>
+          <button
+           type="button"
+           className="settingsDeleteButton"
+           onClick={handleDelete}
+           >
+            Delete Account
           </button>
           {success && (
             <span

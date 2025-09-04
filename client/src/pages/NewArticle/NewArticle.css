@@ -1,5 +1,4 @@
-
-
+/* Main page wrapper */
 .productPage{
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +6,7 @@
     flex-direction: column;
 }
 
+/* Form container */
 .write {
     margin: 150px 50px 200px 100px;
     justify-content: center;
@@ -16,13 +16,12 @@
     border-radius: 20px;
   }
 
-
-
-
+/* Inner form styling */
 .writeForm{
    padding: 20px 20px 20px 20px;
 }
 
+/* Preview image */
 .writeImg{
   width: 150px;
   height: auto;
@@ -32,6 +31,7 @@
   display: block;
 }
 
+/* Remove image button */
 .removeImgBtn{
   border-radius: 15px;
   background-color: rgb(204, 0, 0);
@@ -44,6 +44,7 @@
   background-color: rgb(167, 0, 0);;
 }
 
+/* Form input fields */
 .writeInput{
   display: flex;
   justify-content: center;
@@ -53,7 +54,7 @@
   margin: 20px 0 20px 0;
 }
 
-
+/* Custom file upload button */
 .customFileLabel{
   padding: 10px 20px;
   border-radius: 50px;
@@ -69,11 +70,12 @@
   background-color: hsl(189, 100%, 34%);
 }
 
-
+/* Hide default file input */
 .fileInput{
   display: none;
 }
 
+/* Submit button */
 .writeSubmit {
   padding: 20px 30px;
   border-radius: 50px;

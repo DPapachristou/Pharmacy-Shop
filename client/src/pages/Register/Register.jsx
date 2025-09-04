@@ -1,10 +1,11 @@
 import './Register.css'
-import Button from 'react-bootstrap/esm/Button'
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom"; 
 
+// Register Page
 export default function Register() {
+  //form state
   const url = "http://localhost:5000/server"
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ export default function Register() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState(false);
 
+  //Submit Form
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
@@ -20,15 +22,16 @@ export default function Register() {
         username,
         email,
         password,
-        isAdmin,
+        isAdmin, //checkbox Admin
       });
+      //redirect to login page after success
       res.data && window.location.replace("/login");
     } catch (err) {
       setError(true);
     }
   };
 
-  return (
+ return (
     <div className='register'>
         <div className="registerWrapper">
         <span className="registerTitle">
@@ -49,11 +52,11 @@ export default function Register() {
             />
             Register as Admin
           </label>
-            <Button className="registerButton" variant="success" type="submit">Register Now!</Button>
+            <button className="registerButton" type="submit">Register Now!</button>
         </form>
-        <Button className='loginButton' variant='info' as={Link} to="/login">
+        <Link className='loginLink' to="/login">
             Login
-        </Button>
+        </Link>
         {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
         </div>
     </div>

@@ -5,6 +5,7 @@ import {useEffect, useState , useContext} from "react";
 import axios from "axios";
 import { Context } from "../../context/context";
 
+//Single Product Page
 
 export default function SinglePost() {
   const url ="http://localhost:5000/server/posts"
@@ -17,6 +18,8 @@ export default function SinglePost() {
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+
+  // Fetch product data when component mounts
 
   useEffect(() => {
     const getPost = async () => {
@@ -33,6 +36,8 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
+  // Delete product
+
   const handleDelete = async () => {
     if (!user?.username) return alert("Please Log in!");
     try {
@@ -46,6 +51,8 @@ export default function SinglePost() {
     }
   };
 
+  // Update product
+
   const handleUpdate = async () => {
     if (!user?.username) return alert("You have to be logged in!");
     try {
@@ -55,6 +62,7 @@ export default function SinglePost() {
         desc,
         price: Number(price),
       });
+      // update local state
       setPost((p) => ({
         ...p,
         title,
@@ -68,9 +76,7 @@ export default function SinglePost() {
     }
   };
 
-  
-
-return (
+  return (
       <div className="singlePost">
         <div className="singlePostWrapper twoCols">
           <div className="singlePostLeft">
@@ -153,6 +159,5 @@ return (
           </div>
         </div>
       </div>
-
-    );
+  );
 }

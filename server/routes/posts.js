@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user");
 const Post = require("../models/post");
 
+// CREATE a new post 
 router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
   try {
@@ -12,9 +13,11 @@ router.post("/", async (req, res) => {
   }
 });
 
+// UPDATE a post 
 router.put("/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
+      // Only the owner (same username) can update
       if (post.username === req.body.username) {
         try {
           const updatedPost = await Post.findByIdAndUpdate(
@@ -36,9 +39,11 @@ router.put("/:id", async (req, res) => {
     }
   });
 
+  //delete 
 router.delete("/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
+      // Only the owner can delete
       if (post.username === req.body.username) {
         try {
           await post.deleteOne();
@@ -55,7 +60,7 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-
+//get single product
 router.get("/:id", async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -65,7 +70,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-
+//get all products
 router.get("/", async (req, res) => {
     const username = req.query.user;
     const catName = req.query.cat;

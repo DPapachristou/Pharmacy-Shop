@@ -11,22 +11,25 @@ import { Link } from "react-router-dom";
 function Navbara() {
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
-
+  
+// Logout
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     localStorage.removeItem("user");
   };
 
   return (
-    <Navbar className="NavB">
+    <Navbar className="NavB" expand>
       <Container className="navCont">
-        <Navbar.Brand as={Link} to="/" className="navLogo">Pharmacy</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="basic-navbar-nav">
-          <Nav className="me-auto">
+        <div className="navLogo">
+          <Link to="/">Pharmacy</Link>
+          </div>
+          <Nav className="navCenter">
             {user?.isAdmin && (
               <Nav.Link as={Link} to="/newArticle">ADD NEW PRODUCT</Nav.Link>
-            )}
+             )}
+            </Nav>
+           <div className="navRight">
                {user ? (
               <>
                 {user.profilePic && (
@@ -50,13 +53,12 @@ function Navbara() {
                     CREATE ACCOUNT
                   </NavDropdown.Item>
                 </NavDropdown>
-              </>
+                </>
             )}
-          </Nav>
-        </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
-  );
+ );
 }
 
 export default Navbara;

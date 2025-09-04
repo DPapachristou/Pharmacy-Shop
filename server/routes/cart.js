@@ -1,4 +1,7 @@
 const Cart = require("../models/Cart");
+
+//Shopping Cart not used yet
+
 const {
   verifyToken,
   verifyTokenAndAuthorization,

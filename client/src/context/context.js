@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 import Reducer from "./Reducer";
 
-
+// Helper: load user from localStorage safely
 function loadUserFromStorage() {
   try {
     const raw = localStorage.getItem("user");
@@ -11,17 +11,21 @@ function loadUserFromStorage() {
   }
 }
 
+// Initial state of the context
 const INITIAL_STATE = {
   user: loadUserFromStorage(),
   isFetching: false,
   error: false,
 };
 
+// Create global context
 export const Context = createContext(INITIAL_STATE);
 
+// Context provider to wrap the app
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
 
+  // Sync user state with localStorage
   useEffect(() => {
     if (state.user) {
       localStorage.setItem("user", JSON.stringify(state.user));

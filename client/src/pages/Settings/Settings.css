@@ -1,66 +1,84 @@
+/* Main container */
 .settings {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
   }
   
+  /* Wrapper Content */
   .settingsWrapper {
-    flex: 9;
+    flex: none;
+    width: 100%;
+    max-width: 500px;
     padding: 20px;
   }
   
+  /* Page title row */
   .settingsTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   
+  /* Update account heading */
   .settingsUpdateTitle {
     font-size: 30px;
     margin-bottom: 20px;
-    color: lightcoral;
+    color: rgb(1, 187, 187);
+    font-weight: 500;
+  }
+
+  /* Delete Button */
+  .settingsDeleteButton {
+  width: 150px;
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: crimson;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  }
+
+  .settingsDeleteButton:hover {
+  background-color: darkred;
   }
   
-  .settingsDeleteTitle {
-    color: red;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  
+  /* Form layout */
   .settingsForm {
     display: flex;
     flex-direction: column;
+    gap: 15px;
   }
   
+  /* Profile picture */
   .settingsPP {
     display: flex;
     align-items: center;
     margin: 10px 0;
+    gap: 20px;
   }
   
+  /* Profile picture Preview*/
   .settingsPP > img {
     width: 70px;
     height: 70px;
     border-radius: 20px;
     object-fit: cover;
+    margin-right: 10px; 
   }
   
-  .settingsPPIcon {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: lightcoral;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  
+  /* Form labels */
+
   .settingsForm > label {
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: 16px;
+    margin: 8px 0 2px;
+    font-weight: 500;
   }
-  
+
+  /* Input fields */
   .settingsForm > input {
     color: gray;
     margin: 10px 0;
@@ -69,14 +87,19 @@
     border-bottom: 1px solid lightgray;
   }
   
+  /* Update button */
   .settingsSubmit{
       width: 150px;
       align-self: center;
       border: none;
       border-radius: 10px;
       color: white;
-      background-color: teal;
+      background-color: rgb(1, 187, 187);
       padding: 10px;
       margin-top: 20px;
       cursor: pointer;
+  }
+
+  .settingsSubmit:hover {
+  background-color: rgb(2, 75, 85);
   }

@@ -1,44 +1,99 @@
+/* Product Cont */
+
 .Post{
-    width: 385px;
-    margin: 0px 12px 40px 25px;
+  width: 100%;
+  max-width: 320px;                
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin: 0;         
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+
+.Post:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+/* Product Image Container*/
+
+.postImgWrap{
+  height: 240px;                   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Product Image */
 
 .postImg{
-    width: 100%;
-    height: 280px;
-    object-fit: contain;
-    border-radius: 7px;
+  max-height: 220px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 7px;
 }
+
+/* Product Info */
 
 .postInfo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;           
+  margin-top: 10px;
 }
+
+/* Product Title */
+
+.postTitleLink{
+  text-decoration: none;
+}
+
+.postTitle{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.postTitleLink:hover .postTitle{
+  color: rgb(1, 187, 187);
+  text-decoration: underline;
+}
+
+/* Product Price */
+
+.postPrice{
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: rgb(1, 187, 187); 
+  margin: 8px 0 4px;
+}
+
+/* Product Desc */
 
 .postDesc{
-    font-family: sans-serif;
-    font-size: 14px;
-    color: grey;
-    line-height: 24px;
-    margin-top: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #475569;
+  line-height: 22px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;  
+  -webkit-box-orient: vertical;
 }
 
-.postTitle {
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 15px;
-    cursor: pointer;
-  }
-  
-  .postDate {
-    font-style: italic;
-    font-size: 13px;
-    color: #999;
-    margin-top: 15px;
-  }
+.posts{
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}

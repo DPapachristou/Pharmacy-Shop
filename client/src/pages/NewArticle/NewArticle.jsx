@@ -4,21 +4,25 @@ import axios from "axios";
 import { Context } from "../../context/context";
 import Footer from "../../components/Footer/Footer";
 
+// Page for creating a new product
 export default function NewArticle() {
+    // Form states
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [price, setPrice] = useState("");
     const [file, setFile] = useState(null);
     const { user } = useContext(Context);
-
+    // Handle form submit
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // New product object
         const newPost = {
           username: user.username,
           title,
           desc,
           price,
         };
+        // If image file is selected, upload it first
         if (file) {
           const data =new FormData();
           const filename = Date.now() + file.name;
@@ -29,8 +33,10 @@ export default function NewArticle() {
             await axios.post("http://localhost:5000/server/upload", data);
           } catch (err) {}
         }
+        // Then send product data to backend
         try {
           const res = await axios.post("http://localhost:5000/server/posts", newPost);
+          // Redirect to product page
           window.location.replace("/post/" + res.data._id);
         } catch (err) {}
       };

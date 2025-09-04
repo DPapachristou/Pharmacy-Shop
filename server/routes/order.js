@@ -1,4 +1,7 @@
 const Order = require("../models/Order");
+
+//Order Route not used yet
+
 const {
   verifyToken,
   verifyTokenAndAuthorization,
