@@ -61,10 +61,11 @@ Installation
 ---
 
  **Clone the repository**  
+   
    bash:  
    git clone https://github.com/DPapachristou/pharmacy-shop.git  
    cd pharmacy-shop  
----
+---  
 Backend:  
 
 cd server  
