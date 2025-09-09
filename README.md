@@ -90,4 +90,6 @@ Future Improvements:
 -Cart and payment feature  
 -Deployment (e.g., Vercel for frontend + Render/Heroku for backend)  
 
-👨‍💻 Author: Dimitris Papachristou
+🧑‍💻 Author
+Dimitris Papachristou
+LinkedIn | GitHub
