@@ -38,7 +38,7 @@ Admins can add new products, update, and delete them.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend**
 - React  
@@ -91,6 +91,6 @@ Future Improvements:
 -Cart and payment feature  
 -Deployment (e.g., Vercel for frontend + Render/Heroku for backend)  
 
-## 🧑‍💻 Author
+## Author
 **Dimitris Papachristou**  
 [LinkedIn](https://www.linkedin.com/in/dimitris-papachristou/) | [GitHub](https://github.com/DPapachristou)  
