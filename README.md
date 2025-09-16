@@ -89,7 +89,7 @@ Future Improvements:
 -Search functionality  
 -Responsive mobile-first redesign  
 -Cart and payment feature  
--Deployment (e.g., Vercel for frontend + Render/Heroku for backend)  
+-Deployment
 
 ## Author
 **Dimitris Papachristou**  
